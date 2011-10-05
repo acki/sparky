@@ -4,7 +4,7 @@
     
     ob_start();
     
-    include('func.error.php');
+    include('functions/error.php');
         
     if(stristr($_SERVER["REQUEST_URI"], 'exec.php') === 'exec.php') {
 
