@@ -1,16 +1,34 @@
 <?php
 
+    /**
+     * Return a panic error to the web. Deletes all other web content
+     * Use PHP magic constants to fill out the first four variables
+     * @param 	string	$dir         Magic constant __DIR__
+     * @param 	string	$file        Magic constant __FILE__
+     * @param 	string	$line        Magic constant __LINE__
+     * @param 	string	$function    Magic constant __FUNCTION__
+     * @param 	string	$panic       The panic message
+     * @param 	string	$dire        Normally you dont need to touch this
+     */
+
     function panic($dir, $file, $line, $function, $panic = 'Unknown error!', $dire = dire) {
     
+        /**
+         * Clean the web output, remove all php errors, fill empty variables,
+         * create single file name
+         */
         ob_end_clean();
         error_reporting(0);
-            
+        
         if ($function === '') {
             $function = 'Unknown or no function';
         }
         
         $file = str_ireplace($dir . '/', '', $file);
     
+       /**
+        * Print the panic message well formatted
+        */
         print '
 <html>
     <head>
@@ -48,7 +66,10 @@
         
     </body>
 </html>';
-                
+
+       /*
+        * Don't do more, better you die.
+        */    
         die;
         
     }
