@@ -2,7 +2,7 @@
 
     /**
      * File for system wide sparky configuration
-     * Please change this to your preferred values
+     * Please don't change this!!
      */
 
     $cfg = array(
