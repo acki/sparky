@@ -49,9 +49,7 @@
         </style> 
     </head>
     <body>
-    ';
-        
-        print '
+
         <h1><img src="' . $dire . '_style/default/icons/deadly.png" alt="deadly" /> Eh. I am <a href="http://github.com/chrigu99/sparky" target="_blank">sparky</a>.<br />I\'ve run into a wall.</h1>
         
         <h2>The reason i think:</h2>
@@ -63,7 +61,8 @@
         <pre>' . $line . '</pre>
         
     </body>
-</html>';
+</html>
+        ';
 
        /*
         * Don't do more, better you die.
