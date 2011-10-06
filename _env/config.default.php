@@ -7,17 +7,13 @@
 
     $cfg = array(
     
-       /**
-        * Default configuration for page width values
-        */
+        // Default configuration for page width values
         'page'=>array(
             'title'=>"sparky",
             'defaultlang'=>"de",
         ),
         
-       /**
-        * Database connection (MySQL)
-        */
+        // Database connection (MySQL)
         'mysql'=>array(
             'host'=>"localhost",
             'user'=>"sparky",
@@ -25,25 +21,19 @@
             'db'=>"sparky",
         ),
         
-       /**
-        * Style configuration
-        */
+        // Style configuration
         'style'=>array(
             'id'=>"default",
             'path'=>"_style",
         ),
         
-       /**
-        * Authentication configuration
-        */
+        // Authentication configuration
         'auth'=>array(
             'timeout'=>60*60*24*30,
             'cookietimeout'=>60*60*24*30,
         ),
         
-       /**
-        * Localization
-        */
+        // Localization
         'locales'=>array(
             'languages'=>array(
                 'de',
@@ -51,9 +41,7 @@
             'LC_TIME'=>'de_CH',
         ),
         
-       /**
-        * Logging
-        */
+        // Logging
         'log'=>array(
             'error'=>true,
             'errordir'=>'_log',
