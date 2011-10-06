@@ -44,8 +44,20 @@
        /**
         * Localization
         */
-        'languages'=>array(
-            'de',
+        'locales'=>array(
+            'languages'=>array(
+                'de',
+            ),
+            'LC_TIME'=>'de_CH',
+        ),
+        
+       /**
+        * Logging
+        */
+        'log'=>array(
+            'error'=>true,
+            'errordir'=>'_log',
+            'errorlog'=>'error.' . date('Ymd') . '.log',
         ),
             
     );
