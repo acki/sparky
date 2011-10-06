@@ -2,29 +2,29 @@
 
     /**
      * Return a panic error to the web. Deletes all other web content
-     * Use PHP magic constants to fill out the first four variables
-     * @param 	string	$dir         Magic constant __DIR__
-     * @param 	string	$file        Magic constant __FILE__
-     * @param 	string	$line        Magic constant __LINE__
-     * @param 	string	$function    Magic constant __FUNCTION__
+     * The magic constants will be read over debug_backtrace()
      * @param 	string	$panic       The panic message
      * @param 	string	$dire        Normally you dont need to touch this
      */
 
-    function panic($dir, $file, $line, $function, $panic = 'Unknown error!', $dire = dire) {
+    function panic($panic = 'Unknown error!', $dire = dire) {
     
         /**
-         * Clean the web output, remove all php errors, fill empty variables,
-         * create single file name
+         * Clean the web output, remove all php errors
          */
         ob_end_clean();
         error_reporting(0);
         
-        if ($function === '') {
-            $function = 'Unknown or no function';
+       /**
+        * Read the needed backtrace informations, get script name
+        */
+        $debug = debug_backtrace();
+        if(isset($debug[0])) {
+            $file       = $debug[0]['file'];
+            $line       = $debug[0]['line'];
         }
         
-        $file = str_ireplace($dir . '/', '', $file);
+        $file = basename($file);
     
        /**
         * Print the panic message well formatted
@@ -61,8 +61,6 @@
         <pre>' . $file . '</pre>
         <h4>Line:</h4>
         <pre>' . $line . '</pre>
-        <h4>Function:</h4>
-        <pre>' . $function . '</pre>
         
     </body>
 </html>';
