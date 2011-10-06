@@ -9,26 +9,23 @@
 
     function panic($panic = 'Unknown error!', $dire = dire) {
     
-        /**
-         * Clean the web output, remove all php errors
-         */
+        // Clean the web output
         ob_end_clean();
+        
+        // Remove all php errors
         error_reporting(0);
         
-       /**
-        * Read the needed backtrace informations, get script name
-        */
+        // Read the needed backtrace informations, get script name
         $debug = debug_backtrace();
         if(isset($debug[0])) {
             $file       = $debug[0]['file'];
             $line       = $debug[0]['line'];
         }
         
+        // Get the simple script name
         $file = basename($file);
     
-       /**
-        * Print the panic message well formatted
-        */
+        // Print the panic message well formatted
         print '
 <html>
     <head>
@@ -64,9 +61,7 @@
 </html>
         ';
 
-       /*
-        * Don't do more, better you die.
-        */    
+        // Don't do more, better you die.
         die;
         
     }
