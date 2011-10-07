@@ -10,5 +10,5 @@ Clone the complete directory into your preferred web directory.
 
 Give these folders enough rights, that your web server can write into it:
 
-_log
-_cache
+ * _log
+ * _cache
