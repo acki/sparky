@@ -22,14 +22,24 @@
     if(stristr($_SERVER["REQUEST_URI"], 'exec.php') === 'exec.php') {
         panic("You shouldn't access this file directly", "../");
     }
+    
+    // Create style path
+    $tmp_style_path = dire . $cfg['style']['path'].'/' . $cfg['style']['id'].'/';
 
     // Includes
     include('functions/functions.php');
     include('classes/packages.php');
     
     // Autoload packages
-    
     $packages = new Package;
     $packages->loadPackages($cfg['packages']['required']);
+    
+    // Load Twig templating engine
+    Twig_Autoloader::register();
+    
+    $loader = new Twig_Loader_Filesystem($tmp_style_path . '/templates');
+    $twig = new Twig_Environment($loader, array(
+        'cache' => $cfg['page']['cache'],
+    ));
     
 ?>

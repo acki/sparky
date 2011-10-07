@@ -9,8 +9,9 @@
     
         // Default configuration for page width values
         'page'=>array(
-            'title'=>"sparky",
-            'defaultlang'=>"de",
+            'title'=>'sparky',
+            'defaultlang'=>'de',
+            'cache'=>'_cache',
         ),
         
         // Database connection (MySQL)
@@ -52,6 +53,7 @@
         'packages'=>array(
             'folder'=>'_env/packages/',
             'required'=>array(
+                'Twig',
             ),
         ),
             
