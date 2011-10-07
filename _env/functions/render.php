@@ -8,7 +8,7 @@
     * @param    $data        Array with data for the template rendering
     */
 
-    function render($template, $title = 'Welcome', $data = array()) {
+    function render($template, $title = 'sparky.', $data = array()) {
     
         // Globalize some data
         global $twig, $tmp_style_path;
