@@ -9,7 +9,7 @@
     include('config.default.php');
 
     // Sets the value to report all PHP error, set log file, set locales
-    error_reporting(E_ALL, E_NOTICE);
+    error_reporting(E_ALL);
     ini_set('error_log','../' . $cfg['log']['errordir'] . '/' . $cfg['log']['errorlog']);
     ini_set('log_errors', $cfg['log']['error']);
     setlocale(LC_TIME, $cfg['locales']['LC_TIME']);
@@ -22,8 +22,14 @@
     if(stristr($_SERVER["REQUEST_URI"], 'exec.php') === 'exec.php') {
         panic("You shouldn't access this file directly", "../");
     }
-    
+
     // Includes
     include('functions/functions.php');
-        
+    include('classes/packages.php');
+    
+    // Autoload packages
+    
+    $packages = new Package;
+    $packages->loadPackages($cfg['packages']['required']);
+    
 ?>

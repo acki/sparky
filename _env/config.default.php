@@ -47,6 +47,13 @@
             'errordir'=>'_log',
             'errorlog'=>'error.' . date('Ymd') . '.log',
         ),
+        
+        // Packages
+        'packages'=>array(
+            'folder'=>'_env/packages/',
+            'required'=>array(
+            ),
+        ),
             
     );
     
