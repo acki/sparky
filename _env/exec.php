@@ -28,6 +28,7 @@
 
     // Includes
     include('functions/functions.php');
+    include('functions/render.php');
     include('classes/packages.php');
     
     // Autoload packages
@@ -36,10 +37,12 @@
     
     // Load Twig templating engine
     Twig_Autoloader::register();
-    
     $loader = new Twig_Loader_Filesystem($tmp_style_path . '/templates');
     $twig = new Twig_Environment($loader, array(
         'cache' => $cfg['page']['cache'],
     ));
+    
+    // Set encoding
+    header('Content-Type: text/html; charset=UTF8');
     
 ?>
