@@ -25,6 +25,7 @@
                     $dir         = str_replace('//', '/', $packdir . '/' . $p);
                     $classfile   = $dir . '/class.' . $p . '.php';
                     $funcfile    = $dir . '/function.' . $p . '.php';
+                    $autofile    = $dir . '/Autoloader.php';
             
                     // Check if directory exists
                     if(is_dir($dir)) {
@@ -41,6 +42,12 @@
                             // Include function file
                             include($funcfile);
                             
+                        // Check if auto loader file exists
+                        } elseif(is_file($autofile)) {
+                        
+                            // Include auto loader file
+                            require_once $autofile;
+                        
                         } else {
                             
                             // Panic if nothing works
