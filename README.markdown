@@ -1,14 +1,14 @@
-= README sparky =
+# README sparky 
 
-== General ==
+## General
 
 sparky is a little PHP framework, which you can use to do little web projects. It is not strictly object oriented and it doesn't support MVC. This is not very modern, but it is a reason to keep it simple and you can start quickly.
 
-== Install ==
+## Install
 
 Clone the complete directory into your preferred web directory.
 
 Give these folders enough rights, that your web server can write into it:
 
- * _log
- * _cache
+* _log
+* _cache
