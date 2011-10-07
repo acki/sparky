@@ -14,7 +14,7 @@
     * @param    $strtype You can define the expected type of data (not implemented)
     * @param    $ent     If true, executes html_entities
     */
-
+    
     function vGET($str,$safe=true,$type=false,$strtype=false,$ent=true) {
 
         // Check if function exists
@@ -72,11 +72,13 @@
                         return ${$str};
                     } elseif($ent==false || $safe==true) {
                         return ${$str};
-                    } else
-                        // Escapes the value
+                    } else {
+                        // Escapes the string
                         return htmlentities(${$str});
-                    }
+                    } 
+                                       
                 }
+                
             }
             
         }
@@ -85,3 +87,5 @@
         return false;
         
     }
+
+?>
