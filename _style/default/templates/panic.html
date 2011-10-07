@@ -1,0 +1,17 @@
+{% extends "main.html" %}
+
+{% block title %}
+    sparky runned into a wall
+{% endblock %}
+
+{% block content %}
+    <h1><img src="{{ tmp_style_path }}icons/deadly.png" alt="deadly" /> Eh. I am <a href="http://github.com/chrigu99/sparky" target="_blank">sparky</a>.<br />I've runned into a wall.</h1>
+            
+    <h2>The reason i think:</h2>
+    <pre>{{ panic }}</pre>
+            
+    <h4>File:</h4>
+    <pre>{{ file }}</pre>
+    <h4>Line:</h4>
+    <pre>{{ line }}</pre>
+{% endblock %}
