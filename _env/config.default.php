@@ -12,6 +12,7 @@
             'title'=>'sparky',
             'defaultlang'=>'de',
             'cache'=>'_cache',
+            'debug'=>true,
         ),
         
         // Database connection (MySQL)
