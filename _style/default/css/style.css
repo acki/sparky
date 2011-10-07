@@ -10,3 +10,7 @@ pre {
 a {
     color: darkred;
 }
+
+div#footer {
+    padding-top: 8em;
+}
