@@ -10,7 +10,7 @@
     function panic($panic = 'Unknown error!', $dire = dire) {
 
         // Globalize some data
-        global $tmp_style_path, $twig, $cfg;
+        global $tmp_style_path, $twig, $cache, $cfg;
 
         // Do this if debug is not active
         if(!$cfg['page']['debug']) {
