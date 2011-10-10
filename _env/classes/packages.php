@@ -16,6 +16,9 @@
             global $cfg;
             $packdir = dire.$cfg['packages']['folder'];
     
+            // Includes
+            include_once(dire.'_env/functions/error.php');
+    
             // Check if directory exists
             if(is_dir($packdir)) {
             
