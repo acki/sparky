@@ -8,12 +8,27 @@
      */
 
     function panic($panic = 'Unknown error!', $dire = dire) {
+
+        // Globalize some data
+        global $tmp_style_path, $twig, $cfg;
+
+        // Do this if debug is not active
+        if(!$cfg['page']['debug']) {
         
-        // Clean the web output
-        ob_end_clean();
+            // Clean the web output
+            ob_end_clean();
+            
+            // Remove all php errors
+            error_reporting(0);
         
-        // Remove all php errors
-        error_reporting(0);
+        }
+        
+        if(!isset($twig) || !is_object($twig)) {
+            include_once(dire . '_env/functions/twig.php');
+            $twig = loadTwig($tmp_style_path, $cache);
+         }
+        
+        include_once(dire . '_env/functions/render.php');
         
         // Read the needed backtrace informations, get script name
         $debug = debug_backtrace();
