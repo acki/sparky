@@ -17,10 +17,10 @@
         
         // Database connection (MySQL)
         'mysql'=>array(
-            'host'=>"localhost",
-            'user'=>"sparky",
-            'password'=>"sparky",
-            'db'=>"sparky",
+            'host'=>'localhost',
+            'user'=>'sparky',
+            'password'=>'sparky',
+            'database'=>'sparky',
         ),
         
         // Style configuration
@@ -55,6 +55,8 @@
             'folder'=>'_env/packages/',
             'required'=>array(
                 'Twig',
+                'sparky.mysql',
+                'sparky.routing',
             ),
         ),
             
