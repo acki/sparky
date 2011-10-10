@@ -12,3 +12,8 @@ Give these folders enough rights, that your web server can write into it:
 
 * _log
 * _cache
+
+## Packages
+
+* https://github.com/chrigu99/sparky.mysql
+* https://github.com/chrigu99/sparky.routing
