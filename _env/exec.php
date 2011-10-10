@@ -6,7 +6,7 @@
     */
     
     // We need the configuration from the beginning
-    include('config.default.php');
+    include_once('config.default.php');
     
     // Check if constants are defined
     if(!defined('dire')) {
@@ -39,7 +39,7 @@
     $tmp_style_path = dire . $cfg['style']['path'].'/' . $cfg['style']['id'].'/';
 
     // Autoload packages
-    include('classes/packages.php');
+    include_once('classes/packages.php');
     $packages = new Package;
     $packages->loadPackages($cfg['packages']['required']);
     
@@ -48,11 +48,11 @@
     $twig = loadTwig($tmp_style_path, $cache);
 
     // Includes
-    include('functions/functions.php');
-    include('functions/render.php');
+    include_once('functions/functions.php');
+    include_once('functions/render.php');
     
     // Error handling for direct file access, before do more stuff
-    include('functions/error.php');    
+    include_once('functions/error.php');    
     if(stristr($_SERVER["REQUEST_URI"], 'exec.php') === 'exec.php') {
         panic("You shouldn't access this file directly", "../");
     }
