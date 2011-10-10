@@ -1,3 +1,6 @@
 [submodule "_env/packages/sparky.mysql"]
 	path = _env/packages/sparky.mysql
 	url = git@github.com:chrigu99/sparky.mysql.git
+[submodule "_env/packages/sparky.routing"]
+	path = _env/packages/sparky.routing
+	url = git@github.com:chrigu99/sparky.routing.git
