@@ -44,11 +44,8 @@
     $packages->loadPackages($cfg['packages']['required']);
     
     // Load Twig templating engine
-    Twig_Autoloader::register();
-    $loader = new Twig_Loader_Filesystem($tmp_style_path . '/templates');
-    $twig = new Twig_Environment($loader, array(
-        'cache' => $cache,
-    ));
+    include_once('functions/twig.php');
+    $twig = loadTwig($tmp_style_path, $cache);
 
     // Includes
     include('functions/functions.php');
