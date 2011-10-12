@@ -2,7 +2,7 @@
 
 ## General
 
-sparky is a little PHP framework, which you can use to do little web projects. It is not strictly object oriented -- and it doesn't support MVC -- and should support MVC in the future. This is not very modern, but it is a reason to keep it simple and you can start quickly.
+sparky is a little PHP framework, which you can use to do little web projects. It is not strictly object oriented <del>and it doesn't support MVC</del> and should support MVC in the future. This is not very modern, but it is a reason to keep it simple and you can start quickly.
 
 ## Install
 
