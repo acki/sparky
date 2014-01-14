@@ -15,5 +15,5 @@ Give these folders enough rights, that your web server can write into it:
 
 ## Packages
 
-* https://github.com/chrigu99/sparky.mysql
-* https://github.com/chrigu99/sparky.routing
+* https://github.com/acki/sparky.mysql
+* https://github.com/acki/sparky.routing
