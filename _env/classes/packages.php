@@ -26,15 +26,21 @@
                 foreach($list as $p) {
                 
                     $dir         = str_replace('//', '/', $packdir . '/' . $p);
+                    $autofile    = $dir . '/Autoloader.php';
                     $classfile   = $dir . '/class.' . $p . '.php';
                     $funcfile    = $dir . '/function.' . $p . '.php';
-                    $autofile    = $dir . '/Autoloader.php';
             
                     // Check if directory exists
                     if(is_dir($dir)) {
                         
+                        // Check if auto loader file exists
+                        if(is_file($autofile)) {
+                        
+                            // Include auto loader file
+                            require_once $autofile;
+                        
                         // Check if class file exists
-                        if(is_file($classfile)) {
+                        } elseif(is_file($classfile)) {
                         
                             // Include class file
                             include($classfile);
@@ -45,12 +51,6 @@
                             // Include function file
                             include($funcfile);
                             
-                        // Check if auto loader file exists
-                        } elseif(is_file($autofile)) {
-                        
-                            // Include auto loader file
-                            require_once $autofile;
-                        
                         } else {
                             
                             // Panic if nothing works
