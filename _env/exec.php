@@ -40,7 +40,7 @@
         // Set template cache path
         $cache = dire . $cfg['page']['cache'];
     }
-    
+    $debug->startUsedTime('output');
     // Create an output cache
     ob_start();
     
@@ -70,5 +70,6 @@
     // Set encoding and locales
     header('Content-Type: text/html; charset=UTF8');
     setlocale(LC_TIME, $cfg['locales']['LC_TIME']);
+    $debug->endUsedTime('output');
     
 ?>

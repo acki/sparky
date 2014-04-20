@@ -16,6 +16,10 @@
         // Append arrays
         $defaultdata = array('title'=>$title, 'style_path'=>$style_path);
         $data = $defaultdata + $data;
+        
+        global $debug;
+        $debugdata['debug'] = $debug->showDebug();
+        $data = $data + $debugdata;
     
         // Rendering template
         $template = $twig->loadTemplate($template);
