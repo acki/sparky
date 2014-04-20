@@ -11,10 +11,10 @@
     function render($template, $title = 'sparky.', $data = array()) {
     
         // Globalize some data
-        global $twig, $tmp_style_path;
+        global $twig, $style_path;
         
         // Append arrays
-        $defaultdata = array('title'=>$title, 'tmp_style_path'=>$tmp_style_path);
+        $defaultdata = array('title'=>$title, 'style_path'=>$style_path);
         $data = $defaultdata + $data;
     
         // Rendering template

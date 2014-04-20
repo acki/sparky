@@ -14,8 +14,8 @@
             
             // Globalize some data
             global $cfg;
-            $packdir = dire.$cfg['packages']['folder'];
-    
+            $packdir = dire . '' . $cfg['packages']['folder'];
+
             // Includes
             include_once(dire.'_env/functions/error.php');
     
@@ -29,7 +29,7 @@
                     $autofile    = $dir . '/Autoloader.php';
                     $classfile   = $dir . '/class.' . $p . '.php';
                     $funcfile    = $dir . '/function.' . $p . '.php';
-            
+
                     // Check if directory exists
                     if(is_dir($dir)) {
                         
@@ -76,7 +76,7 @@ Searched for these files in the package:
                     
             // Panic if configured folder doesn't exists
             } else {
-                
+
                 panic('Package folder "' . $cfg['packages']['folder'] . '" doesn\'t exist!<br />Please check your configuration!');
                     
             } // if

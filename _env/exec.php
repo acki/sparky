@@ -10,7 +10,7 @@
     
     // Check if constants are defined
     if(!defined('dire')) {
-        define('dire', '../');
+        define('dire', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
     }
 
     // Set error reporting
@@ -20,6 +20,15 @@
     if($cfg['page']['debug']) {
         // Unset cache
         $cache = false;
+
+		// show errors
+		ini_set('display_errors', true);
+		
+		// go debugging!
+		include_once('classes/debug.php');
+		$debug = new Debug;
+		$debug->showDebug();
+
     } else {
         // Set no error display
         ini_set('display_errors', 0);
@@ -35,27 +44,28 @@
     // Create an output cache
     ob_start();
     
-    // Create style path
-    $tmp_style_path = dire . $cfg['style']['path'].'/' . $cfg['style']['id'].'/';
-
-    // Autoload packages
-    include_once('classes/packages.php');
-    $packages = new Package;
-    $packages->loadPackages($cfg['packages']['required']);
-    
-    // Load Twig templating engine
-    include_once('functions/twig.php');
-    $twig = loadTwig($tmp_style_path, $cache);
-
-    // Includes
-    include_once('functions/functions.php');
-    include_once('functions/render.php');
-    
     // Error handling for direct file access, before do more stuff
     include_once('functions/error.php');    
     if(stristr($_SERVER["REQUEST_URI"], 'exec.php') === 'exec.php') {
         panic("You shouldn't access this file directly", "../");
     }
+
+    // Includes
+    include_once('functions/functions.php');
+    include_once('functions/render.php');
+    
+    // Autoload packages
+    include_once('classes/packages.php');
+    $packages = new Package;
+    $packages->loadPackages($cfg['packages']['required']);
+    
+    // Create style paths
+    $absolute_style_path = dire . $cfg['style']['path'].'/' . $cfg['style']['id'] . '/';
+	$style_path = Routing::getBasePath() . $cfg['style']['path'].'/' . $cfg['style']['id'] . '/';
+    
+    // Load Twig templating engine
+    include_once('functions/twig.php');
+    $twig = loadTwig($absolute_style_path, $cache);
 
     // Set encoding and locales
     header('Content-Type: text/html; charset=UTF8');

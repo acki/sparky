@@ -10,7 +10,7 @@
     function panic($panic = 'Unknown error!', $dire = dire) {
 
         // Globalize some data
-        global $tmp_style_path, $twig, $cache, $cfg;
+        global $absolute_style_path, $twig, $cache, $cfg;
 
         // Do this if debug is not active
         if(!$cfg['page']['debug']) {
@@ -25,7 +25,7 @@
         
         if(!isset($twig) || !is_object($twig)) {
             include_once(dire . '_env/functions/twig.php');
-            $twig = loadTwig($tmp_style_path, $cache);
+            $twig = loadTwig($absolute_style_path, $cache);
          }
         
         include_once(dire . '_env/functions/render.php');
