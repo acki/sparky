@@ -4,3 +4,6 @@
 [submodule "_env/packages/sparky.routing"]
 	path = _env/packages/sparky.routing
 	url = git@github.com:acki/sparky.routing.git
+[submodule "_env/packages/sparky.uplight"]
+	path = _env/packages/sparky.uplight
+	url = git@github.com:acki/sparky.uplight.git
